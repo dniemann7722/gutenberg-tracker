@@ -1,0 +1,44 @@
+name: Scrape Gutenberg Top 100
+
+on:
+  schedule:
+    # Runs every Monday at 09:00 UTC. GitHub's scheduler runs on its own
+    # clock, so this fires whether or not your computer is on.
+    - cron: "0 9 * * 1"
+  # Lets you trigger a run manually from the Actions tab, e.g. to backfill
+  # today's numbers or to test the workflow after changing it.
+  workflow_dispatch: {}
+
+# Grants the job permission to push the updated CSV back to the repo.
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run scraper
+        run: python scrape.py
+
+      - name: Commit and push updated data
+        run: |
+          git config user.name "gutenberg-tracker-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/top100_books.csv
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Add $(date -u +%Y-%m-%d) Top 100 scrape"
+            git push
+          fi

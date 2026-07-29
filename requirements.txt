@@ -1,0 +1,4 @@
+# scrape.py currently uses only the Python standard library
+# (urllib, re, csv, html) so there's nothing to install today.
+# This file exists so future additions (e.g. beautifulsoup4, pandas)
+# have an obvious place to go without touching the workflow file.
