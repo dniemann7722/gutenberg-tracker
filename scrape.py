@@ -1,18 +1,26 @@
 #!/usr/bin/env python3
 """
-Scrape Project Gutenberg's "Top 100" page and append each day's rankings
-to a running CSV history file.
+Scrape Project Gutenberg's "Top 100" page and append rankings to a running
+CSV history file.
 
-Tracks all three ebook windows Gutenberg publishes (yesterday, last 7 days,
-last 30 days) so that, over time, you can tell which titles are steady
-perennials versus which ones spike briefly and disappear.
+Tracks two of the three ebook windows Gutenberg publishes: "last 7 days"
+and "last 30 days". The "yesterday" window is intentionally skipped -
+sampled weekly it's mostly single-day noise, not a useful trend signal.
+
+Which window(s) get scraped in a given run is controlled by the
+--windows argument (a comma-separated list of anchor names: books-last7,
+books-last30). This lets the same script serve two different schedules -
+a weekly run for the 7-day window, and a monthly run for the 30-day
+window - without duplicating code. See the accompanying GitHub Actions
+workflow for how that's wired up.
 
 Designed to run unattended (e.g. via GitHub Actions on a schedule), so it
-avoids third-party libraries beyond `requests`; HTML parsing is done with
-plain regular expressions since Project Gutenberg's page structure is
-simple and has been stable for years.
+avoids third-party libraries beyond the Python standard library; HTML
+parsing is done with plain regular expressions since Project Gutenberg's
+page structure is simple and has been stable for years.
 """
 
+import argparse
 import csv
 import datetime
 import html
@@ -26,12 +34,14 @@ DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 CSV_PATH = os.path.join(DATA_DIR, "top100_books.csv")
 
 # Maps the anchor name Gutenberg uses for each section to a short label
-# we'll store in the CSV.
+# we'll store in the CSV. ("books-last1" / "yesterday" is deliberately
+# excluded - see module docstring.)
 WINDOWS = {
-    "books-last1": "yesterday",
     "books-last7": "last_7_days",
     "books-last30": "last_30_days",
 }
+
+DEFAULT_WINDOWS = "books-last7"
 
 CSV_FIELDS = ["scrape_date", "window", "rank", "ebook_id", "title_and_author", "downloads"]
 
@@ -94,11 +104,34 @@ def load_existing_keys(csv_path: str):
     return keys
 
 
+def parse_args():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--windows",
+        default=DEFAULT_WINDOWS,
+        help=(
+            "Comma-separated list of anchor names to scrape this run. "
+            f"Choices: {', '.join(WINDOWS.keys())}. "
+            f"Defaults to '{DEFAULT_WINDOWS}'."
+        ),
+    )
+    return parser.parse_args()
+
+
 def main():
+    args = parse_args()
+    requested = [w.strip() for w in args.windows.split(",") if w.strip()]
+    unknown = [w for w in requested if w not in WINDOWS]
+    if unknown:
+        print(f"ERROR: unrecognized window(s) {unknown}. "
+              f"Valid choices: {list(WINDOWS.keys())}", file=sys.stderr)
+        sys.exit(1)
+    windows_to_scrape = {w: WINDOWS[w] for w in requested} or WINDOWS
+
     today = datetime.date.today().isoformat()
 
     try:
-        html = fetch_html(URL)
+        html_text = fetch_html(URL)
     except Exception as exc:  # noqa: BLE001 - want the run to fail loudly in Actions logs
         print(f"ERROR: failed to fetch {URL}: {exc}", file=sys.stderr)
         sys.exit(1)
@@ -107,12 +140,12 @@ def main():
     already_scraped = load_existing_keys(CSV_PATH)
 
     new_rows = []
-    for anchor_name, window_label in WINDOWS.items():
+    for anchor_name, window_label in windows_to_scrape.items():
         if (today, window_label) in already_scraped:
             print(f"Skipping {window_label}: already recorded for {today}")
             continue
 
-        section_html = extract_section(html, anchor_name)
+        section_html = extract_section(html_text, anchor_name)
         items = parse_list_items(section_html)
 
         if not items:
