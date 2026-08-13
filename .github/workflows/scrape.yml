@@ -2,12 +2,26 @@ name: Scrape Gutenberg Top 100
 
 on:
   schedule:
-    # Runs every Monday at 09:00 UTC. GitHub's scheduler runs on its own
-    # clock, so this fires whether or not your computer is on.
+    # Weekly: every Monday at 09:00 UTC - scrapes the "last 7 days" list.
+    # A 7-day window sampled every 7 days has almost no overlap with the
+    # previous sample, so this is where most of the useful signal is.
     - cron: "0 9 * * 1"
-  # Lets you trigger a run manually from the Actions tab, e.g. to backfill
-  # today's numbers or to test the workflow after changing it.
-  workflow_dispatch: {}
+    # Monthly: the 1st of the month at 09:00 UTC - scrapes the "last 30
+    # days" list. Sampled more often than this it would mostly just
+    # re-report days already captured by the previous sample.
+    - cron: "0 9 1 * *"
+  # Lets you trigger a run manually from the Actions tab, choosing which
+  # window(s) to scrape - handy for testing or backfilling.
+  workflow_dispatch:
+    inputs:
+      windows:
+        description: "Which window(s) to scrape"
+        type: choice
+        default: "books-last7"
+        options:
+          - books-last7
+          - books-last30
+          - "books-last7,books-last30"
 
 # Grants the job permission to push the updated CSV back to the repo.
 permissions:
@@ -28,8 +42,19 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Determine which window(s) to scrape
+        id: pick
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "windows=${{ github.event.inputs.windows }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "0 9 1 * *" ]; then
+            echo "windows=books-last30" >> "$GITHUB_OUTPUT"
+          else
+            echo "windows=books-last7" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Run scraper
-        run: python scrape.py
+        run: python scrape.py --windows "${{ steps.pick.outputs.windows }}"
 
       - name: Commit and push updated data
         run: |
@@ -39,6 +64,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Add $(date -u +%Y-%m-%d) Top 100 scrape"
+            git commit -m "Add $(date -u +%Y-%m-%d) Top 100 scrape (${{ steps.pick.outputs.windows }})"
             git push
           fi
