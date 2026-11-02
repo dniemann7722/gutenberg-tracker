@@ -1399,3 +1399,103 @@ scrape_date,window,rank,ebook_id,title_and_author,downloads
 2026-11-01,last_30_days,98,12,Through the Looking-Glass by Lewis Carroll,21929
 2026-11-01,last_30_days,99,42324,"Frankenstein; or, The modern Prometheus by Mary Wollstonecraft Shelley",21485
 2026-11-01,last_30_days,100,45109,The Enchiridion by Epictetus,21135
+2026-11-02,last_7_days,1,1342,Pride and Prejudice by Jane Austen,53010
+2026-11-02,last_7_days,2,84,"Frankenstein; or, The modern Prometheus by Mary Wollstonecraft Shelley",50683
+2026-11-02,last_7_days,3,2701,"Moby Dick; Or, The Whale by Herman Melville",39658
+2026-11-02,last_7_days,4,11,Alice's Adventures in Wonderland by Lewis Carroll,35970
+2026-11-02,last_7_days,5,1661,The Adventures of Sherlock Holmes by Arthur Conan Doyle,25259
+2026-11-02,last_7_days,6,45188,The International Development of China by Yat-sen Sun,24466
+2026-11-02,last_7_days,7,345,Dracula by Bram Stoker,22068
+2026-11-02,last_7_days,8,37683,Chambers's Twentieth Century Dictionary (part 1 of 4: A-D),19907
+2026-11-02,last_7_days,9,41,The Legend of Sleepy Hollow by Washington Irving,18024
+2026-11-02,last_7_days,10,100,The Complete Works of William Shakespeare by William Shakespeare,17935
+2026-11-02,last_7_days,11,1513,Romeo and Juliet by William Shakespeare,17775
+2026-11-02,last_7_days,12,145,Middlemarch by George Eliot,16643
+2026-11-02,last_7_days,13,98,A Tale of Two Cities by Charles Dickens,16533
+2026-11-02,last_7_days,14,174,The Picture of Dorian Gray by Oscar Wilde,16013
+2026-11-02,last_7_days,15,43,The strange case of Dr. Jekyll and Mr. Hyde by Robert Louis Stevenson,15363
+2026-11-02,last_7_days,16,64317,The Great Gatsby by F. Scott Fitzgerald,15298
+2026-11-02,last_7_days,17,1260,Jane Eyre: An Autobiography by Charlotte Brontë,14611
+2026-11-02,last_7_days,18,1232,The Prince by Niccolò Machiavelli,14310
+2026-11-02,last_7_days,19,205,"Walden, and On The Duty Of Civil Disobedience by Henry David Thoreau",13869
+2026-11-02,last_7_days,20,2554,Crime and Punishment by Fyodor Dostoyevsky,13681
+2026-11-02,last_7_days,21,5200,Metamorphosis by Franz Kafka,13574
+2026-11-02,last_7_days,22,2680,Meditations by Emperor of Rome Marcus Aurelius,13259
+2026-11-02,last_7_days,23,1952,The Yellow Wallpaper by Charlotte Perkins Gilman,13221
+2026-11-02,last_7_days,24,2641,A Room with a View by E. M. Forster,13068
+2026-11-02,last_7_days,25,1184,The Count of Monte Cristo by Alexandre Dumas and Auguste Maquet,12729
+2026-11-02,last_7_days,26,37106,"Little Women; Or, Meg, Jo, Beth, and Amy by Louisa May Alcott",12666
+2026-11-02,last_7_days,27,1400,Great Expectations by Charles Dickens,12437
+2026-11-02,last_7_days,28,74,"The Adventures of Tom Sawyer, Complete by Mark Twain",11727
+2026-11-02,last_7_days,29,2600,War and Peace by graf Leo Tolstoy,11724
+2026-11-02,last_7_days,30,67979,The Blue Castle: a novel by L. M. Montgomery,11603
+2026-11-02,last_7_days,31,1080,A Modest Proposal by Jonathan Swift,11543
+2026-11-02,last_7_days,32,49008,The Works of William Shakespeare [Cambridge Edition] [Vol. 8 of 9] by William Shakespeare,11227
+2026-11-02,last_7_days,33,16389,The Enchanted April by Elizabeth Von Arnim,10807
+2026-11-02,last_7_days,34,394,Cranford by Elizabeth Cleghorn Gaskell,10520
+2026-11-02,last_7_days,35,844,The Importance of Being Earnest: A Trivial Comedy for Serious People by Oscar Wilde,10487
+2026-11-02,last_7_days,36,768,Wuthering Heights by Emily Brontë,10467
+2026-11-02,last_7_days,37,1727,The Odyssey by Homer,10435
+2026-11-02,last_7_days,38,46,A Christmas Carol in Prose; Being a Ghost Story of Christmas by Charles Dickens,10273
+2026-11-02,last_7_days,39,3207,Leviathan by Thomas Hobbes,10108
+2026-11-02,last_7_days,40,6593,"History of Tom Jones, a Foundling by Henry Fielding",10063
+2026-11-02,last_7_days,41,2160,The Expedition of Humphry Clinker by T. Smollett,10036
+2026-11-02,last_7_days,42,6761,The Adventures of Ferdinand Count Fathom — Complete by T. Smollett,9825
+2026-11-02,last_7_days,43,1259,Twenty years after by Alexandre Dumas and Auguste Maquet,9671
+2026-11-02,last_7_days,44,25344,The Scarlet Letter by Nathaniel Hawthorne,9657
+2026-11-02,last_7_days,45,55,The Wonderful Wizard of Oz by L. Frank Baum,9640
+2026-11-02,last_7_days,46,76,Adventures of Huckleberry Finn by Mark Twain,9638
+2026-11-02,last_7_days,47,4085,The Adventures of Roderick Random by T. Smollett,9607
+2026-11-02,last_7_days,48,4300,Ulysses by James Joyce,9487
+2026-11-02,last_7_days,49,120,Treasure Island by Robert Louis Stevenson,9433
+2026-11-02,last_7_days,50,35,The Time Machine by H. G. Wells,9340
+2026-11-02,last_7_days,51,45,Anne of Green Gables by L. M. Montgomery,9308
+2026-11-02,last_7_days,52,5197,My Life — Volume 1 by Richard Wagner,9224
+2026-11-02,last_7_days,53,23,"Narrative of the Life of Frederick Douglass, an American Slave by Frederick Douglass",9194
+2026-11-02,last_7_days,54,3296,The Confessions of St. Augustine by Saint of Hippo Augustine,9103
+2026-11-02,last_7_days,55,2591,Grimms' Fairy Tales by Jacob Grimm and Wilhelm Grimm,9059
+2026-11-02,last_7_days,56,2542,A Doll's House : a play by Henrik Ibsen,8986
+2026-11-02,last_7_days,57,1998,Thus Spake Zarathustra: A Book for All and None by Friedrich Wilhelm Nietzsche,8535
+2026-11-02,last_7_days,58,1497,The Republic by Plato,8375
+2026-11-02,last_7_days,59,10,The King James Version of the Bible,8287
+2026-11-02,last_7_days,60,8492,The King in Yellow by Robert W. Chambers,8272
+2026-11-02,last_7_days,61,219,Heart of Darkness by Joseph Conrad,8096
+2026-11-02,last_7_days,62,28054,The Brothers Karamazov by Fyodor Dostoyevsky,7993
+2026-11-02,last_7_days,63,16328,Beowulf: An Anglo-Saxon Epic Poem,7941
+2026-11-02,last_7_days,64,61985,Harrods for Everything by Harrods Ltd.,7916
+2026-11-02,last_7_days,65,161,Sense and Sensibility by Jane Austen,7807
+2026-11-02,last_7_days,66,158,Emma by Jane Austen,7674
+2026-11-02,last_7_days,67,1228,On the Origin of Species By Means of Natural Selection by Charles Darwin,7624
+2026-11-02,last_7_days,68,829,Gulliver's Travels into Several Remote Nations of the World by Jonathan Swift,7595
+2026-11-02,last_7_days,69,514,Little Women by Louisa May Alcott,7559
+2026-11-02,last_7_days,70,132,The Art of War by active 6th century B.C. Sunzi,7317
+2026-11-02,last_7_days,71,4363,Beyond Good and Evil by Friedrich Wilhelm Nietzsche,7303
+2026-11-02,last_7_days,72,7370,Second Treatise of Government by John Locke,7285
+2026-11-02,last_7_days,73,36,The war of the worlds by H. G. Wells,7225
+2026-11-02,last_7_days,74,3300,An Inquiry into the Nature and Causes of the Wealth of Nations by Adam Smith,7190
+2026-11-02,last_7_days,75,26296,"Les mille et une nuits, tome premier",7150
+2026-11-02,last_7_days,76,408,The Souls of Black Folk by W. E. B. Du Bois,7123
+2026-11-02,last_7_days,77,34901,On Liberty by John Stuart Mill,7062
+2026-11-02,last_7_days,78,16,Peter Pan : by J. M. Barrie,6757
+2026-11-02,last_7_days,79,2852,The Hound of the Baskervilles by Arthur Conan Doyle,6671
+2026-11-02,last_7_days,80,12342,The Nuttall encyclopædia : by P. Austin Nuttall,6663
+2026-11-02,last_7_days,81,2148,The Works of Edgar Allan Poe — Volume 2 by Edgar Allan Poe,6526
+2026-11-02,last_7_days,82,20738,Diccionario Ingles-Español-Tagalog by Sofronio G. Calderón,6399
+2026-11-02,last_7_days,83,20203,Autobiography of Benjamin Franklin by Benjamin Franklin,6333
+2026-11-02,last_7_days,84,244,A Study in Scarlet by Arthur Conan Doyle,6281
+2026-11-02,last_7_days,85,135,Les Misérables by Victor Hugo,6202
+2026-11-02,last_7_days,86,5740,Tractatus Logico-Philosophicus by Ludwig Wittgenstein,6116
+2026-11-02,last_7_days,87,36034,"White nights, and other stories by Fyodor Dostoyevsky",6005
+2026-11-02,last_7_days,88,996,Don Quixote by Miguel de Cervantes Saavedra,5998
+2026-11-02,last_7_days,89,8800,The divine comedy by Dante Alighieri,5995
+2026-11-02,last_7_days,90,10007,Carmilla by Joseph Sheridan Le Fanu,5845
+2026-11-02,last_7_days,91,26225,Fifteen Thousand Useful Phrases by Grenville Kleiser,5828
+2026-11-02,last_7_days,92,1399,Anna Karenina by graf Leo Tolstoy,5753
+2026-11-02,last_7_days,93,42324,"Frankenstein; or, The modern Prometheus by Mary Wollstonecraft Shelley",5735
+2026-11-02,last_7_days,94,41445,"Frankenstein; or, The modern Prometheus by Mary Wollstonecraft Shelley",5702
+2026-11-02,last_7_days,95,67098,Winnie-the-Pooh by A. A. Milne,5656
+2026-11-02,last_7_days,96,26471,Spoon River Anthology by Edgar Lee Masters,5633
+2026-11-02,last_7_days,97,27827,The Kama Sutra of Vatsyayana by Vatsyayana,5629
+2026-11-02,last_7_days,98,2814,Dubliners by James Joyce,5598
+2026-11-02,last_7_days,99,2000,Don Quijote by Miguel de Cervantes Saavedra,5537
+2026-11-02,last_7_days,100,12,Through the Looking-Glass by Lewis Carroll,5371
